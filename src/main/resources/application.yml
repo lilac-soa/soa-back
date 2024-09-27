@@ -1,0 +1,36 @@
+spring:
+    application:
+        name: soa-back
+
+    jpa:
+        open-in-view: false
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true
+                use_sql_comments: true
+                highlight_sql: true
+                auto_quote_keyword: true
+#        hibernate:
+#            ddl-auto: create
+
+    datasource:
+        url: jdbc:mariadb://121.179.140.28:3306/lilac
+        username: lilac-soa
+        password: nhnacademy123!
+        driver-class-name: org.mariadb.jdbc.Driver
+        type: org.apache.commons.dbcp2.BasicDataSource
+        dbcp2:
+            initial-size: 10
+            max-total: 10
+            max-idle: 10
+            min-idle: 10
+            test-on-borrow: true
+            validation-query: SELECT 1
+
+logging:
+    level:
+        org.hibernate.orm.jdbc.bind: trace
+        org.springframework.transaction.interceptor: trace
+
+
