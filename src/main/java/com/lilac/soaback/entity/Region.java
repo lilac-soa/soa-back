@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,9 +14,9 @@ import lombok.NoArgsConstructor;
 public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
-    String name;
+    private long id;
+    private String name;
 
-    @OneToOne(mappedBy = "region")
-    Brewery brewery;
+    @OneToMany(mappedBy = "region")
+    private List<Brewery> breweryList;
 }

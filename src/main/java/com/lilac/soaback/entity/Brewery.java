@@ -21,6 +21,10 @@ public class Brewery {
     private String philosophy;
     private float lat;
     private float lon;
+    private String webPage;
+    private String phone;
+    private String openingHours;
+    private String closedDays;
 
     @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BreweryType> breweryTypeList = new ArrayList<>();
@@ -37,7 +41,7 @@ public class Brewery {
     @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RecommendedRestaurant> recommendedRestaurantList = new ArrayList<>();
 
-    @OneToOne
+    @ManyToOne
     private Region region;
 
 }
