@@ -6,17 +6,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
-public class BreweryType {
+public class RecommendedRestaurant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String restaurantName;
+    private String address;
+    private String content;
 
     @ManyToOne
     private Brewery brewery;
-
-    @ManyToOne
-    private Type type;
 }

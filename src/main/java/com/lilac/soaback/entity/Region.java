@@ -6,17 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
-public class BreweryType {
+public class Region {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    long id;
+    String name;
 
-    @ManyToOne
-    private Brewery brewery;
-
-    @ManyToOne
-    private Type type;
+    @OneToOne(mappedBy = "region")
+    Brewery brewery;
 }

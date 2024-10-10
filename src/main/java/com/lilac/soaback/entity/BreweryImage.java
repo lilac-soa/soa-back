@@ -6,10 +6,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
-public class BreweryType {
+public class BreweryImage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -18,5 +18,5 @@ public class BreweryType {
     private Brewery brewery;
 
     @ManyToOne
-    private Type type;
+    private Image image;
 }

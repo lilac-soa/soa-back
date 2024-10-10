@@ -5,18 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
-public class BreweryType {
+public class Type {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    private String name;
 
-    @ManyToOne
-    private Brewery brewery;
-
-    @ManyToOne
-    private Type type;
+    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BreweryType> breweryTypeList;
 }
