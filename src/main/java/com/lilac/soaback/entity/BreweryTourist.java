@@ -29,8 +29,8 @@ public class BreweryTourist {
     @OneToMany(mappedBy = "breweryTourist", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BreweryTouristImage> breweryTouristImageList = new ArrayList<>();
 
-    public BreweryTourist(String content, String type){
-        this.content = content;
+    public BreweryTourist(String name, String type){
+        this.touristName = name;
         this.type = type;
     }
 }

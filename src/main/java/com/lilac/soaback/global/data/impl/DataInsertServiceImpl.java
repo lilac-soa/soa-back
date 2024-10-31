@@ -78,7 +78,7 @@ public class DataInsertServiceImpl implements DataInsertService {
         }
 
         for(int i=13; i<=15; i++){
-            if(Objects.nonNull(list[i])){
+            if(list[i] != null && !list[i].isEmpty()){
                 addTourist(brewery, list[i]);
             }
         }
@@ -91,10 +91,10 @@ public class DataInsertServiceImpl implements DataInsertService {
      * @param tourist 여행지
      */
     private void addTourist(Brewery brewery, String tourist){
-        String content = tourist.replaceAll("\\(.*\\)", "").trim();
-        String type = tourist.replaceAll(".*\\((.*)\\).*", ""); // 괄호 안의 값 추출
+        String name = tourist.replaceAll("\\(.*\\)", "").trim();
+        String type = tourist.replaceAll(".*\\((.*)\\).*", "$1"); // 괄호 안의 값 추출
 
-        BreweryTourist breweryTourist = new BreweryTourist(content, type);
+        BreweryTourist breweryTourist = new BreweryTourist(name, type);
         touristRepository.save(breweryTourist);
 
         brewery.addBreweryTourist(breweryTourist);
@@ -119,7 +119,6 @@ public class DataInsertServiceImpl implements DataInsertService {
 
         KoreanAlcohol koreanAlcohol = new KoreanAlcohol(name, abv);
         koreanAlcoholRepository.save(koreanAlcohol);
-        log.info(nameType +" 지금의 nameType 그리고 abv : " + abv );
         koreanAlcohol.setType(typeRepository.findByName(type).orElseThrow(
                 () -> new NotFoundTypeException(type + "이 없습니다.")));
 

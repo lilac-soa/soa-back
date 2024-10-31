@@ -167,7 +167,7 @@
                             </specifications>
                             <name>${project.artifactId}</name>
                             <version>${project.version}</version>
-                            <host>localhost:8080</host>  <!-- 이후 url 주소 변경 -->
+                            <host>localhost:8080</host>
                             <schemes>
                                 <scheme>http</scheme>
                             </schemes>
