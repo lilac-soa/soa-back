@@ -2,7 +2,9 @@ package com.lilac.soaback.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class BreweryTourist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,4 +28,9 @@ public class BreweryTourist {
 
     @OneToMany(mappedBy = "breweryTourist", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BreweryTouristImage> breweryTouristImageList = new ArrayList<>();
+
+    public BreweryTourist(String content, String type){
+        this.content = content;
+        this.type = type;
+    }
 }

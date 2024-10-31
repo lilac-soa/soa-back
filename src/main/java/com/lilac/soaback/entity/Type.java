@@ -18,7 +18,6 @@ public class Type {
     private long id;
     private String name;
 
-
     @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<KoreanAlcohol> koreanAlcoholList = new ArrayList<>();
 }
