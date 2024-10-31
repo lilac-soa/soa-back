@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,6 +18,7 @@ public class Type {
     private long id;
     private String name;
 
+
     @OneToMany(mappedBy = "type", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BreweryType> breweryTypeList;
+    private List<KoreanAlcohol> koreanAlcoholList = new ArrayList<>();
 }

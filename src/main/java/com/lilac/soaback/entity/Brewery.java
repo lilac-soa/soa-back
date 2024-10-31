@@ -16,8 +16,6 @@ public class Brewery {
     private String breweryName;
     private String owner;
     private String location;
-    private String foundedYear;
-    private String selectionYear;
     private String philosophy;
     private float lat;
     private float lon;
@@ -27,19 +25,14 @@ public class Brewery {
     private String closedDays;
 
     @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BreweryType> breweryTypeList = new ArrayList<>();
+    private List<KoreanAlcohol> koreanAlcoholList = new ArrayList<>();
+
 
     @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BreweryTourist> breweryTouristList = new ArrayList<>();
 
     @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BreweryProduct> breweryProductList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<BreweryImage> breweryImageList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "brewery", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<RecommendedRestaurant> recommendedRestaurantList = new ArrayList<>();
 
     @ManyToOne
     private Region region;

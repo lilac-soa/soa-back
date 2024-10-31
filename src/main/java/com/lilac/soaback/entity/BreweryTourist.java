@@ -15,6 +15,10 @@ public class BreweryTourist {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String touristName;
+    private String address;
+    private String content;
+    private String type;
+
     @ManyToOne
     private Brewery brewery;
 

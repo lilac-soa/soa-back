@@ -1,10 +1,10 @@
 package com.lilac.soaback.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -18,5 +18,13 @@ public class KoreanAlcohol {
     private String mainIngredient;
     private String manufacturer;
 
+    @ManyToOne
+    private Brewery brewery;
+
+    @ManyToOne
+    private Type type;
+
+    @OneToMany(mappedBy = "koreanAlcohol", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<KoreanAlcoholImage> koreanAlcoholImageList = new ArrayList<>();
 
 }
