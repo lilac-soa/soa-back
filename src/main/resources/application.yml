@@ -15,9 +15,9 @@ spring:
 #            ddl-auto: create
 
     datasource:
-        url: ${DATABASE_URL}
-        username: ${DATABASE_USERNAME}
-        password: ${DATABASE_PASSWORD}
+        url: jdbc:mariadb://121.179.140.28:3306/lilac #${DATABASE_URL}
+        username: lilac-soa #${DATABASE_USERNAME}
+        password: nhnacademy123! #${DATABASE_PASSWORD}
         driver-class-name: org.mariadb.jdbc.Driver
         type: org.apache.commons.dbcp2.BasicDataSource
         dbcp2:
