@@ -41,6 +41,6 @@ public class BreweryServiceImpl implements BreweryService {
 
     @Override
     public List<Brewery> getBreweries() {
-        return List.of();
+        return breweryRepository.findAll();
     }
 }
