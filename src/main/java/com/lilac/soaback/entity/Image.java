@@ -8,13 +8,16 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 public class Image {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
     String url;
 }

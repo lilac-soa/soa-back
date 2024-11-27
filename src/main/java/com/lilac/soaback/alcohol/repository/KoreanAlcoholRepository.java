@@ -3,6 +3,8 @@ package com.lilac.soaback.alcohol.repository;
 import com.lilac.soaback.entity.KoreanAlcohol;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.UUID;
 
-public interface  KoreanAlcoholRepository extends JpaRepository<KoreanAlcohol, Long> {
+
+public interface  KoreanAlcoholRepository extends JpaRepository<KoreanAlcohol, UUID> {
 }

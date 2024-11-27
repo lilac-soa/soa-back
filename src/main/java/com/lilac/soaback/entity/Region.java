@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @AllArgsConstructor
@@ -13,8 +14,9 @@ import java.util.List;
 @Getter
 public class Region {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
     private String name;
 
     @OneToMany(mappedBy = "region")

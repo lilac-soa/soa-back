@@ -3,10 +3,11 @@ package com.lilac.soaback.tourist.dto.response;
 import lombok.Builder;
 
 import java.util.List;
+import java.util.UUID;
 
 @Builder
 public record TouristResponse(
-        long id,
+        UUID id,
         String touristName,
         String address,
         String content,

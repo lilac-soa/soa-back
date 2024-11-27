@@ -14,9 +14,11 @@ import org.springframework.restdocs.payload.JsonFieldType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper.document;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.payload.PayloadDocumentation.fieldWithPath;
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
@@ -37,7 +39,7 @@ class BreweryControllerTest extends BaseDocumentTest {
     @DisplayName("양조장 조회 테스트")
     void findByIdTest() throws Exception {
         BreweryResponse response = new BreweryResponse(
-                1L,
+                UUID.randomUUID(),
                 "Mountain Peak Brewery",       // breweryName
                 "John Doe",                    // owner
                 "1234 Craft Rd, Beer City",    // location
@@ -50,7 +52,7 @@ class BreweryControllerTest extends BaseDocumentTest {
                 "Sundays"                      // closedDays
         );
 
-        given(breweryService.getBrewery(anyLong())).willReturn(response);
+        given(breweryService.getBrewery(anyString())).willReturn(response);
 
         this.mockMvc.perform(RestDocumentationRequestBuilders.get("/brewery/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON)

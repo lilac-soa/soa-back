@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
@@ -16,8 +17,9 @@ import java.util.List;
 @Setter
 public class BreweryTourist {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
     private String touristName;
     private String address;
     private String content;

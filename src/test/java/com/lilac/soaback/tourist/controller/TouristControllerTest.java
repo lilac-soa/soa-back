@@ -13,9 +13,11 @@ import org.springframework.restdocs.payload.JsonFieldType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper.*;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.request.RequestDocumentation.*;
@@ -39,14 +41,14 @@ class TouristControllerTest extends BaseDocumentTest {
         imageList.add("image2.jpg");
 
         TouristResponse response = TouristResponse.builder()
-                .id(1L)
+                .id(UUID.randomUUID())
                 .touristName("관광지")
                 .address("한국")
                 .content("내용")
                 .type("여행")
                 .imageList(imageList)
                 .build();
-        given(touristService.getTourist(anyLong())).willReturn(response);
+        given(touristService.getTourist(anyString())).willReturn(response);
 
         this.mockMvc.perform(RestDocumentationRequestBuilders.get("/tour/{id}", 1L)
                         .accept(MediaType.APPLICATION_JSON)

@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @NoArgsConstructor
@@ -14,8 +15,9 @@ import java.util.List;
 @Getter
 public class KoreanAlcohol {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
     private String alcoholName;
     private String abv;
     private String specification;
