@@ -1,12 +1,9 @@
-package com.lilac.soaback.brewery.dto.response;
+package com.lilac.soaback.alcohol.dto;
 
 import lombok.Builder;
 
-import java.util.UUID;
-
 @Builder
-public record BreweryResponse(
-        UUID id,
+public record AlcoholResponse(
         String breweryName,
         String owner,
         String location,
@@ -16,5 +13,5 @@ public record BreweryResponse(
         String webPage,
         String phone,
         String openingHours,
-        String closedDays
-) {}
+        String closedDays) {
+}

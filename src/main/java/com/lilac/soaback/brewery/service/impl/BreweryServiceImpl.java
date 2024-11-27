@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.UUID;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -16,8 +19,10 @@ public class BreweryServiceImpl implements BreweryService {
     private final BreweryRepository breweryRepository;
 
     @Override
-    public BreweryResponse getBrewery(long id) {
-        Brewery brewery = breweryRepository.findById(id).orElseThrow(()-> new NotFoundBreweryException(""));
+    public BreweryResponse getBrewery(String id) {
+        UUID uuid = UUID.fromString(id);
+
+        Brewery brewery = breweryRepository.findById(uuid).orElseThrow(()-> new NotFoundBreweryException(""));
 
         return BreweryResponse.builder()
                 .id(brewery.getId())
@@ -32,5 +37,10 @@ public class BreweryServiceImpl implements BreweryService {
                 .openingHours(brewery.getOpeningHours())
                 .closedDays(brewery.getClosedDays())
                 .build();
+    }
+
+    @Override
+    public List<Brewery> getBreweries() {
+        return List.of();
     }
 }
