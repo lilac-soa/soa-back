@@ -1,15 +1,18 @@
 package com.lilac.soaback.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
 public class KoreanAlcohol {
@@ -21,6 +24,7 @@ public class KoreanAlcohol {
     private String specification;
     private String mainIngredient;
     private String manufacturer;
+    private LocalDateTime rgsde;
 
     @ManyToOne
     private Brewery brewery;
@@ -36,4 +40,12 @@ public class KoreanAlcohol {
         this.abv = abv;
     }
 
+    public KoreanAlcohol(String alcoholName, String abv, String specification, String mainIngredient, String manufacturer) {
+        this.alcoholName = alcoholName;
+        this.abv = abv;
+        this.specification = specification;
+        this.mainIngredient = mainIngredient;
+        this.manufacturer = manufacturer;
+        this.rgsde = LocalDateTime.now();
+    }
 }
